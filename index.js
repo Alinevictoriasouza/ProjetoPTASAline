@@ -7,13 +7,13 @@ app.use(express.urlencoded({
   extended: true
 }));
 
-app.get("/", function(req,res){
-    const usuarios = await usuario.findAll();
-console.log(usuarios);
+app.get("/", async function(req,res){
+    var usuarios = await usuario.findAll();
+res.json(usuarios)
 });
 
-app.post('/', function(req,res) {
-  var resultado = usuario.create();
+app.post('/', async function(req,res) {
+  var resultado = await usuario.create();
   res.json(resultado)
 }) ;
 
