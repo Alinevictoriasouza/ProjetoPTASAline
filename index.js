@@ -9,11 +9,11 @@ app.use(express.urlencoded({
 
 app.get("/", async function(req,res){
     var usuarios = await usuario.findAll();
-res.json(usuarios)
+    res.json(usuarios)
 });
 
 app.post('/', async function(req,res) {
-  var resultado = await usuario.create();
+  var resultado = await usuario.create(req.body);
   res.json(resultado)
 }) ;
 
