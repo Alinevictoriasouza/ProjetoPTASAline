@@ -41,19 +41,11 @@ var resultado = await usuario.destroy(
   res.json(resultado);
 }) ;
 
+app.get("/:id", async function(req,res){
+    var retorna = await usuario.findByPk(req.params.id);
+res.json(retorna)
+});
 
 app.listen(3000, function(){
   console.log("O servidor funcionou!");
 });
-
-// var resultado = await usuario.findByPk(req.params.id);
-// usuario.nome = "fern";
- 
-// var resultadoSave = await usuario.save();
-// console.log(resultadoSave);
-//   res.json(resultado);
-
-//  var produto = await usuario.findByPk(req.params.id);
-// usuario.destroy();
-
-//   res.json(produto);
