@@ -31,6 +31,15 @@ app.put('/:id', async function(req,res) {
   res.json(resultado);
 }) ;
 
+app.delete('/:id', async function(req,res) {
+var resultado = await usuario.destroy(
+    {
+      where:{
+        id: req.params.id,
+      },
+  });
+  res.json(resultado);
+}) ;
 
 
 app.listen(3000, function(){
@@ -44,3 +53,7 @@ app.listen(3000, function(){
 // console.log(resultadoSave);
 //   res.json(resultado);
 
+//  var produto = await usuario.findByPk(req.params.id);
+// usuario.destroy();
+
+//   res.json(produto);
